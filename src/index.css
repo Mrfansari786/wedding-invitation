@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@import "@fontsource/poppins";
+@import "@fontsource/cormorant-garamond";
+
+body{
+    margin:0;
+    background:#090909;
+}

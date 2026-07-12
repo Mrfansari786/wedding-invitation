@@ -1,1 +1,1 @@
-export { default } from "./Envelope";
+export {default as Envelope} from "./Envelope";

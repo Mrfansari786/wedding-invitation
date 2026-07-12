@@ -1,105 +1,126 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import EnvelopeBackground from "./EnvelopeBackground";
 import EnvelopeLetter from "./EnvelopeLetter";
 
 type Props = {
-  onOpen?: () => void;
+  onOpen: () => void;
+  opened: boolean;
 };
 
-export default function Envelope({ onOpen }: Props) {
-  const [opened, setOpened] = useState(false);
-
-  const handleOpen = () => {
-    setOpened(true);
-
-    setTimeout(() => {
-      onOpen?.();
-    }, 1800);
-  };
-
+export default function Envelope({ onOpen, opened }: Props) {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#090909]">
+    <div className="flex min-h-screen items-center justify-center overflow-hidden bg-[#090909]">
 
-      <EnvelopeBackground />
+      {/* Golden Flash */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={
+          opened
+            ? {
+                opacity: [0, 0.18, 0],
+                scale: [1, 1.4, 1.8],
+              }
+            : {}
+        }
+        transition={{
+          duration: 0.8,
+        }}
+        className="absolute h-[600px] w-[600px] rounded-full bg-[#D4AF37]"
+      />
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: .8 }}
+        initial={{
+          opacity: 1,
+          scale: 1,
+        }}
+        animate={
+          opened
+            ? {
+                opacity: 0,
+                scale: 0.9,
+                y: -40,
+              }
+            : {}
+        }
+        transition={{
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        whileHover={{
+          scale: opened ? 0.9 : 1.03,
+        }}
+        whileTap={{
+          scale: 0.98,
+        }}
+        onClick={() => {
+          if (!opened) onOpen();
+        }}
         className="relative cursor-pointer"
-        onClick={handleOpen}
       >
-        {/* Shadow */}
 
-        <motion.div
-          animate={{
-            scale: [1,1.1,1],
-            opacity:[.3,.5,.3]
-          }}
-          transition={{
-            repeat:Infinity,
-            duration:2
-          }}
-          className="absolute top-52 left-1/2 h-8 w-72 -translate-x-1/2 rounded-full bg-black blur-xl"
-        />
-
-        <div className="relative w-80 h-56">
-
-          {/* Back */}
-
-          <div className="absolute inset-0 rounded-lg bg-[#1a1a1a]" />
+        <div className="relative h-[240px] w-[360px] overflow-hidden rounded-2xl border border-[#D4AF37]/30 bg-[#161616] shadow-[0_0_80px_rgba(212,175,55,.15)]">
 
           {/* Letter */}
 
-          <EnvelopeLetter opened={opened}/>
+          <motion.div
+            animate={
+              opened
+                ? {
+                    y: -150,
+                  }
+                : {
+                    y: 30,
+                  }
+            }
+            transition={{
+              duration: 0.8,
+            }}
+          >
+            <EnvelopeLetter />
+          </motion.div>
 
           {/* Flap */}
 
           <motion.div
-
-            animate={{
-              rotateX: opened ? 180 : 0
-            }}
-
+            animate={
+              opened
+                ? {
+                    rotateX: -180,
+                  }
+                : {
+                    rotateX: 0,
+                  }
+            }
             transition={{
-              duration:.8
+              duration: 0.8,
             }}
-
             style={{
-              transformOrigin:"top"
+              transformOrigin: "top",
+              transformStyle: "preserve-3d",
             }}
-
-            className="absolute top-0 left-0 h-28 w-full bg-[#D4AF37]"
-          />
-
-          {/* Bottom */}
-
-          <div
-            className="absolute bottom-0 h-28 w-full bg-[#222]"
-            style={{
-              clipPath:"polygon(0 100%,50% 0,100% 100%)"
-            }}
+            className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-[#d4af37] to-[#7d6200]"
           />
 
         </div>
 
+        {/* Text */}
+
         <motion.p
-
-          animate={{
-            opacity:[.5,1,.5]
-          }}
-
+          animate={
+            opened
+              ? {
+                  opacity: 0,
+                }
+              : {
+                  y: [0, -8, 0],
+                }
+          }
           transition={{
-            repeat:Infinity,
-            duration:2
+            repeat: Infinity,
+            duration: 2,
           }}
-
-          className="mt-10 text-center tracking-[8px] uppercase text-[#D4AF37]"
+          className="mt-10 text-center tracking-[8px] text-[#D4AF37]"
         >
-
-          Click Envelope
-
+          TAP TO OPEN
         </motion.p>
 
       </motion.div>

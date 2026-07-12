@@ -1,51 +1,45 @@
-import { motion } from "framer-motion";
+export default function EnvelopeLetter() {
+  return (
+    <div className="mx-5 mt-8 rounded-2xl border border-[#D4AF37]/20 bg-white p-6 shadow-2xl">
 
-type Props={
-    opened:boolean
-}
+      <p className="text-center text-[11px] tracking-[6px] text-gray-500">
+        WEDDING INVITATION
+      </p>
 
-export default function EnvelopeLetter({opened}:Props){
+      <div className="my-5 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-return(
+      <h2 className="text-center text-3xl font-semibold text-[#8f6b00]">
+        Maruf
+      </h2>
 
-<motion.div
+      <p className="my-2 text-center text-xl text-gray-500">
+        &
+      </p>
 
-animate={{
+      <h2 className="text-center text-3xl font-semibold text-[#8f6b00]">
+        Mantasha
+      </h2>
 
-    y:opened?-120:0,
+      <div className="my-6 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-    scale:opened?1.05:1
+      <h2 className="text-center text-2xl font-medium text-[#8f6b00]">
+        Farhan
+      </h2>
 
-}}
+      <p className="my-2 text-center text-lg text-gray-500">
+        &
+      </p>
 
-transition={{
+      <h2 className="text-center text-2xl font-medium text-[#8f6b00]">
+        Misbah
+      </h2>
 
-duration:1
+      <div className="mt-6 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-}}
+      <p className="mt-4 text-center text-xs tracking-[3px] text-gray-500">
+        TAP TO OPEN
+      </p>
 
-className="absolute left-1/2 top-8 w-64 h-40 -translate-x-1/2 rounded-md bg-white shadow-2xl"
-
->
-
-<div className="h-full flex flex-col items-center justify-center">
-
-<p className="tracking-[5px] text-gray-400">
-
-Wedding Invitation
-
-</p>
-
-<h2 className="mt-5 text-4xl text-[#D4AF37]">
-
-M ❤ M
-
-</h2>
-
-</div>
-
-</motion.div>
-
-)
-
+    </div>
+  );
 }

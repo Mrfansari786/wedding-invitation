@@ -10,15 +10,30 @@ export const weddingConfig = {
     },
   ],
 
-  weddingDate: "14 February 2027",
+  weddingDate: "2026-12-20T19:00:00",
 
-  venue: "Royal Palace",
+  venue: "Your Wedding Venue",
 
-  address:
-    "Royal Palace, Indore, Madhya Pradesh",
+  address: "Your Complete Address",
 
-  mapLink:
-    "https://maps.google.com/?q=Royal+Palace+Indore",
+  mapLink: "https://maps.google.com",
 
-  whatsapp: "919876543210",
+  whatsapp: "91XXXXXXXXXX",
+
+  events: [
+  {
+    title: "Nikah",
+    icon: "💍",
+    date: "20 December 2026",
+    time: "02:00 PM",
+    venue: "Your Venue",
+  },
+  {
+    title: "Dawat-e-Walima",
+    icon: "🍽️",
+    date: "21 December 2026",
+    time: "07:30 PM",
+    venue: "Your Venue",
+  },
+  ],
 };

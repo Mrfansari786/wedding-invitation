@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Envelope from "../components/Envelope";
-
+import Envelope from "../components/Envelope/Envelope";
 import HomeScreen from "./HomeScreen";
 
 export default function EnvelopeScreen() {
@@ -10,5 +9,9 @@ export default function EnvelopeScreen() {
     return <HomeScreen />;
   }
 
-  return <Envelope onOpen={() => setOpened(true)} />;
+  return (
+    <Envelope
+      onOpen={() => setOpened(true)}
+    />
+  );
 }

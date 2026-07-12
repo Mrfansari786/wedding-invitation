@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import EnvelopeBackground from "./EnvelopeBackground";
 import EnvelopeLetter from "./EnvelopeLetter";
 
@@ -7,50 +8,102 @@ type Props = {
 };
 
 export default function Envelope({ onOpen }: Props) {
+  const [opened, setOpened] = useState(false);
+
+  const handleOpen = () => {
+    setOpened(true);
+
+    setTimeout(() => {
+      onOpen?.();
+    }, 1800);
+  };
+
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#090909]">
 
       <EnvelopeBackground />
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 40 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-20 cursor-pointer"
-        onClick={onOpen}
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: .8 }}
+        className="relative cursor-pointer"
+        onClick={handleOpen}
       >
         {/* Shadow */}
-        <div className="absolute left-1/2 top-52 h-8 w-72 -translate-x-1/2 rounded-full bg-black/40 blur-xl" />
 
-        {/* Envelope */}
-        <div className="relative h-56 w-80 rounded-lg border border-[#D4AF37]/40 bg-[#111111] shadow-[0_0_60px_rgba(212,175,55,0.18)]">
+        <motion.div
+          animate={{
+            scale: [1,1.1,1],
+            opacity:[.3,.5,.3]
+          }}
+          transition={{
+            repeat:Infinity,
+            duration:2
+          }}
+          className="absolute top-52 left-1/2 h-8 w-72 -translate-x-1/2 rounded-full bg-black blur-xl"
+        />
 
-          {/* Flap */}
-          <div
-            className="absolute left-0 top-0 h-28 w-full"
-            style={{
-              clipPath: "polygon(0 0,100% 0,50% 100%)",
-              background: "#D4AF37",
-            }}
-          />
+        <div className="relative w-80 h-56">
+
+          {/* Back */}
+
+          <div className="absolute inset-0 rounded-lg bg-[#1a1a1a]" />
 
           {/* Letter */}
-          <EnvelopeLetter />
+
+          <EnvelopeLetter opened={opened}/>
+
+          {/* Flap */}
+
+          <motion.div
+
+            animate={{
+              rotateX: opened ? 180 : 0
+            }}
+
+            transition={{
+              duration:.8
+            }}
+
+            style={{
+              transformOrigin:"top"
+            }}
+
+            className="absolute top-0 left-0 h-28 w-full bg-[#D4AF37]"
+          />
 
           {/* Bottom */}
+
           <div
-            className="absolute bottom-0 h-28 w-full"
+            className="absolute bottom-0 h-28 w-full bg-[#222]"
             style={{
-              clipPath: "polygon(0 100%,50% 0,100% 100%)",
-              background: "#171717",
+              clipPath:"polygon(0 100%,50% 0,100% 100%)"
             }}
           />
+
         </div>
 
-        <p className="mt-10 text-center text-lg tracking-[8px] uppercase text-[#D4AF37]">
-          Tap To Open
-        </p>
+        <motion.p
+
+          animate={{
+            opacity:[.5,1,.5]
+          }}
+
+          transition={{
+            repeat:Infinity,
+            duration:2
+          }}
+
+          className="mt-10 text-center tracking-[8px] uppercase text-[#D4AF37]"
+        >
+
+          Click Envelope
+
+        </motion.p>
+
       </motion.div>
+
     </div>
   );
 }

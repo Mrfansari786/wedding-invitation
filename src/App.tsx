@@ -1,35 +1,43 @@
 import { useEffect, useState } from "react";
 
-import Loader from "./components/Loader/Loader";
-import TapToOpen from "./components/TapToOpen/TapToOpen";
-import Home from "./pages/Home";
+import LoadingScreen from "./screens/LoadingScreen";
+import IntroScreen from "./screens/IntroScreen";
+import EnvelopeScreen from "./screens/EnvelopeScreen";
+import HomeScreen from "./screens/HomeScreen";
 
-type Screen = "loader" | "tap" | "home";
+type Screen =
+  | "loading"
+  | "intro"
+  | "envelope"
+  | "home";
 
 function App() {
-  const [screen, setScreen] = useState<Screen>("loader");
+  const [screen, setScreen] = useState<Screen>("loading");
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setScreen("tap");
+      setScreen("intro");
     }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
 
   switch (screen) {
-    case "loader":
-      return <Loader />;
+    case "loading":
+      return <LoadingScreen />;
 
-    case "tap":
+    case "intro":
       return (
-        <TapToOpen
-          onOpen={() => setScreen("home")}
+        <IntroScreen
+          onOpen={() => setScreen("envelope")}
         />
       );
 
+    case "envelope":
+      return <EnvelopeScreen />;
+
     case "home":
-      return <Home />;
+      return <HomeScreen />;
 
     default:
       return null;

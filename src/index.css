@@ -2,8 +2,35 @@
 
 @import "@fontsource/poppins";
 @import "@fontsource/cormorant-garamond";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
 
-body{
-    margin:0;
-    background:#090909;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #090909;
+}
+
+.hero-title {
+  font-family: "Cinzel", serif;
+  background: linear-gradient(
+    90deg,
+    #8f6b00 0%,
+    #d4af37 25%,
+    #fff2b2 50%,
+    #d4af37 75%,
+    #8f6b00 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 6s linear infinite;
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
 }

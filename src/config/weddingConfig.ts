@@ -12,6 +12,8 @@ export const weddingConfig = {
 
   // Countdown (Walima)
   weddingDate: "2026-10-26T18:00:00",
+  
+  displayWeddingDate: "26 October 2026",
 
   // Joint Walima
   venue: "Ansari Jamat Khana, Padana",

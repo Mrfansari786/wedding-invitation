@@ -4,16 +4,16 @@ couples: [
     groom: "Maruf",
     bride: "Mantasha",
 
-    groomFather: "Mr. Anwar Ansari",
-    brideFather: "Mr. Bhuru Ansari",
+    groomFather: "Ad. Anwar Ansari",
+    brideFather: "Mr. Nasir(Bhuru) Ansari",
   },
   {
     groom: "Farhan",
     bride: "Misbah",
 
-    groomFather: "Mr. Anwar Ansari",
-    brideFather: "Mr. Abdul Wahid",
-  },
+    groomFather: "Mr. Abdul Wahid",
+    brideFather: "Ad. Anwar Ansari",
+  },  
 ],
 
   // Countdown (Walima)
@@ -36,22 +36,22 @@ couples: [
       title: "Maruf ❤️ Mantasha - Nikah",
       icon: "💍",
       date: "25 October 2026",
-      time: "After Johar Namaz",
-      venue: "Noorani Masjid, Police Chowki, Padana",
-      map: "https://maps.google.com/?q=Padana",
+      time: "Following the Zuhr Prayer",
+      venue: "Mohammadi Masjid, Near Police Chowki, Padana",
+      map: "https://maps.app.goo.gl/zXKu2K361Y2hjJJw8",
     },
 
     {
       title: "Farhan ❤️ Misbah - Nikah",
       icon: "💍",
       date: "26 October 2026",
-      time: "Johar Baad",
+      time: "Following the Asr Prayer",
       venue: "Jama Masjid, Padana",
-      map: "https://maps.google.com/?q=Padana",
+      map: "https://maps.app.goo.gl/Cn6kygWPnbnQnL347",
     },
 
     {
-      title: "Joint Dawat-e-Walima",
+      title: "Dawat-e-Walima",
       icon: "🍽️",
       date: "26 October 2026",
       time: "6:00 PM Onwards",
@@ -60,55 +60,34 @@ couples: [
     },
   ],
     // Venue Section
-  venues: [
-    {
-      title: "Nikah",
-      couple: "Maruf & Mantasha",
-      icon: "💍",
-      date: "25 October 2026",
-      time: "After Johar Namaz",
-      venue: "Noorani Masjid",
-      address: "Police Chowki, Padana",
-      map: "https://maps.google.com/?q=Noorani+Masjid+Padana",
-    },
+venues: [
+  {
+    title: "Dawat-e-Walima",
+    date: "26 October 2026",
+    time: "6:00 PM Onwards",
+    venue: "Ansari Jamat Khana",
+    address: "Padana",
+    map: "https://maps.google.com/?q=Ansari+Jamat+Khana+Padana",
 
-    {
-      title: "Nikah",
-      couple: "Farhan & Misbah",
-      icon: "💍",
-      date: "26 October 2026",
-      time: "Johar Baad",
-      venue: "Jama Masjid",
-      address: "Padana",
-      map: "https://maps.google.com/?q=Jama+Masjid+Padana",
-    },
-
-    {
-      title: "Dawat-e-Walima",
-      couple: "Together With Their Families",
-      icon: "🍽️",
-      date: "26 October 2026",
-      time: "6:00 PM Onwards",
-      venue: "Ansari Jamat Khana",
-      address: "Padana",
-      map: "https://maps.google.com/?q=Ansari+Jamat+Khana+Padana",
-    },
-  ],
+    embedMap:
+      "https://www.google.com/maps?q=Ansari+Jamat+Khana+Padana&output=embed",
+  },
+],
   contactPersons: [
   {
-    name: "Mr. Anwar Ansari",
+    name: "Ad. Anwar Ansari",
     relation: "Father",
-    phone: "91XXXXXXXXXX",
+    phone: "919993954459",
   },
   {
-    name: "Mr. Kamruddin Ansari",
+    name: "Haji Kamruddin Ansari",
     relation: "Grandfather",
-    phone: "91XXXXXXXXXX",
+    phone: "918718088870"
   },
   {
-    name: "Mr. Umar Farook Ansari",
+    name: "Dr. Umar Farook Ansari",
     relation: "Brother",
-    phone: "91XXXXXXXXXX",
+    phone: "918827869018",
   },
 ],
 };

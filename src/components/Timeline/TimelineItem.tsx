@@ -24,6 +24,8 @@ export default function TimelineItem({
 }: TimelineItemProps) {
   const left = index % 2 === 0;
 
+  const isWalima = title.toLowerCase().includes("walima");
+
   return (
     <motion.div
       initial={{
@@ -36,47 +38,93 @@ export default function TimelineItem({
       }}
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
-      className={`relative mb-16 flex items-center ${
+      className={`relative mb-14 flex items-center ${
         left ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      {/* Timeline Dot */}
+      {/* Timeline Icon */}
 
-      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-20">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#D4AF37] bg-[#111] text-3xl shadow-[0_0_30px_rgba(212,175,55,.3)]">
+      <div className="absolute left-1/2 z-30 hidden -translate-x-1/2 md:flex">
+        <motion.div
+          animate={{
+            boxShadow: [
+              "0 0 10px rgba(212,175,55,.2)",
+              "0 0 28px rgba(212,175,55,.55)",
+              "0 0 10px rgba(212,175,55,.2)",
+            ],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2.5,
+          }}
+          className="flex h-20 w-20 items-center justify-center rounded-full border border-[#D4AF37] bg-[#111] text-4xl"
+        >
           {icon}
-        </div>
+        </motion.div>
       </div>
 
       {/* Card */}
 
       <motion.div
         whileHover={{
-          scale: 1.03,
-          y: -5,
+          y: -8,
+          scale: 1.02,
         }}
-        className="w-full md:w-[45%] rounded-3xl border border-[#D4AF37]/20 bg-white/[0.03] p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(212,175,55,.08)]"
+        transition={{
+          type: "spring",
+          stiffness: 220,
+        }}
+        className="relative w-full rounded-[30px] border border-[#D4AF37]/20 bg-white/[0.04] p-7 md:w-[44%] md:p-9 backdrop-blur-xl shadow-[0_0_60px_rgba(212,175,55,.08)]"
       >
-        <h3 className="text-3xl font-semibold text-[#D4AF37]">
-          {title}
-        </h3>
+        {/* Date */}
 
-        <div className="mt-6 space-y-3 text-gray-300">
-
-          <p>📅 {date}</p>
-
-          <p>🕒 {time}</p>
-
-          <p>📍 {venue}</p>
-
+        <div className="inline-flex rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-5 py-2.5 text-[13px] font-medium text-[#D4AF37]">
+          {date}
         </div>
+
+        {/* Title */}
+
+        {isWalima ? (
+<h3 className="hero-title mt-8 text-center text-[1.9rem] sm:text-[2.2rem] md:text-[2.8rem] leading-none tracking-tight text-[#D4AF37] whitespace-nowrap">
+  Dawat-e-Walima
+</h3>
+        ) : (
+          <>
+            <h3 className="hero-title mt-8 text-[1.55rem] leading-tight text-[#D4AF37] md:text-[2rem]">
+              {title.split(" - ")[0]}
+            </h3>
+
+
+
+
+<p className="mt-5 hero-title text-2xl md:text-3xl uppercase tracking-[4px] text-[#D4AF37]">
+  {title.split(" - ")[1]}
+</p>
+          </>
+        )}
+
+        {/* Details */}
+
+        <div className="mt-7 space-y-5 text-gray-300">
+          <p className="flex items-center gap-3">
+            <span>🕒</span>
+            <span>{time}</span>
+          </p>
+
+          <p className="flex items-start gap-3">
+            <span>📍</span>
+            <span>{venue}</span>
+          </p>
+        </div>
+
+        {/* Button */}
 
         {map && (
           <a
             href={map}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#D4AF37] px-5 py-2 text-[#D4AF37] transition hover:bg-[#D4AF37] hover:text-black"
+            className="mt-10 inline-flex items-center gap-2 rounded-full border border-[#D4AF37] px-7 py-3.5 text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37] hover:text-black"
           >
             <FaLocationDot />
             View Location
@@ -84,8 +132,10 @@ export default function TimelineItem({
         )}
       </motion.div>
 
+      {/* Line */}
+
       {!isLast && (
-        <div className="hidden md:block absolute left-1/2 top-16 h-24 w-[2px] -translate-x-1/2 bg-[#D4AF37]/30" />
+        <div className="absolute left-1/2 top-20 hidden h-24 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#D4AF37]/60 to-transparent md:block" />
       )}
     </motion.div>
   );

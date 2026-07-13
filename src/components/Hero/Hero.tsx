@@ -5,7 +5,7 @@ import Petals from "../Petals";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#090909] px-6">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#090909] px-5 pt-20 pb-24 md:px-6 md:pb-28">
 
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-[#090909] to-black" />
@@ -71,22 +71,23 @@ export default function Hero() {
 
         {/* Heading */}
 
-        <div className="mb-16 mt-20">
+<div className="mb-12 mt-0 md:mt-16">
 
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: .2 }}
-            className="hero-title text-4xl md:text-5xl"
+className="hero-title text-[2rem] leading-[1.8] md:text-5xl"
           >
-            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+        
+        بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: .4 }}
-            className="mt-6 text-xs uppercase tracking-[8px] text-[#D4AF37]/80 md:text-sm"
+className="mt-5 text-[11px] uppercase tracking-[5px] text-[#D4AF37]/70 md:text-sm md:tracking-[8px]"
           >
             Together With Their Families
           </motion.p>
@@ -95,12 +96,13 @@ export default function Hero() {
 
         {/* Couples */}
 
-        <div className="space-y-16">
+        <div className="space-y-10 md:space-y-14">
 
           {weddingConfig.couples.map((couple, index) => (
 
-            <motion.div
-              key={index}
+<div              key={index}>
+<motion.div
+
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -109,66 +111,107 @@ export default function Hero() {
               whileHover={{
                 scale: 1.02,
               }}
-              className="mx-auto w-full max-w-4xl rounded-[32px] border border-[#D4AF37]/20 bg-white/[0.03] px-8 py-12 shadow-[0_0_90px_rgba(212,175,55,.12)] backdrop-blur-xl"
+className="mx-auto w-full max-w-4xl overflow-hidden rounded-[28px] border border-[#D4AF37]/20 bg-white/[0.03] px-5 py-8 md:px-10 md:py-12 shadow-[0_0_70px_rgba(212,175,55,.10)] backdrop-blur-xl"
             >
+{index === 1 ? (
+  <>
+    {/* Bride First */}
 
-<p className="mb-2 text-sm uppercase tracking-[5px] text-gray-400">
+<p className="mb-2 text-[11px] uppercase tracking-[3px] text-gray-400">
+      Beloved Daughter of
+    </p>
+    
+
+<p className="mb-8 text-base md:text-xl text-[#D4AF37]/90">
+      {couple.brideFather}
+    </p>
+
+
+<h1 className="hero-title text-[2.2rem] sm:text-6xl md:text-8xl font-medium tracking-normal sm:tracking-[6px] md:tracking-[12px]">
+  {couple.bride}
+</h1>
+
+
+
+    <p className="my-4 text-5xl text-white">&</p>
+
+    <h1 className="hero-title text-[2.2rem] sm:text-6xl md:text-8xl font-medium tracking-normal sm:tracking-[6px] md:tracking-[12px] lg:tracking-[14px]">
+      {couple.groom}
+    </h1>
+
+<p className="mt-8 mb-2 text-[11px] uppercase tracking-[3px] text-gray-400">
   Beloved Son of
 </p>
 
-<p className="mb-8 text-lg md:text-xl text-[#D4AF37]/90">
+<p className="text-base md:text-xl text-[#D4AF37]/90">
   {couple.groomFather}
 </p>
-              <h1 className="hero-title text-[3rem] sm:text-6xl md:text-8xl font-medium tracking-[2px] sm:tracking-[8px] md:tracking-[14px] transition-all duration-500 md:hover:tracking-[18px] break-words">
-                {couple.groom}
-              </h1>
+  </>
+) : (
+  <>
+    {/* Existing Layout */}
 
-              <p className="my-4 text-5xl text-white">&</p>
+    <p className="mb-2 text-[11px] uppercase tracking-[3px] text-gray-400">
+      Beloved Son of
+    </p>
 
-              <h1 className="hero-title text-[3rem] sm:text-6xl md:text-8xl font-medium tracking-[2px] sm:tracking-[8px] md:tracking-[14px] transition-all duration-500 md:hover:tracking-[18px] break-words">
-                {couple.bride}
-              </h1>
-              <p className="mt-8 text-sm uppercase tracking-[5px] text-gray-400">
-  Beloved Daughter of
-</p>
+    <p className="mb-8 text-base md:text-xl text-[#D4AF37]/90">
+      {couple.groomFather}
+    </p>
 
-<p className="mt-3 text-lg md:text-xl text-[#D4AF37]/90">
-  {couple.brideFather}
-</p>
+    <h1 className="hero-title text-[2.2rem] sm:text-6xl md:text-8xl font-medium tracking-normal sm:tracking-[6px] md:tracking-[12px] lg:tracking-[14px]">
+      {couple.groom}
+    </h1>
 
+    <p className="my-4 text-5xl text-white">&</p>
+
+    <h1 className="hero-title text-[2.2rem] sm:text-6xl md:text-8xl font-medium tracking-normal sm:tracking-[6px] md:tracking-[12px] lg:tracking-[14px]">
+      {couple.bride}
+    </h1>
+
+    <p className="mt-8 text-[11px] uppercase tracking-[3px] text-gray-400">
+      Beloved Daughter of
+    </p>
+
+    <p className="mt-3 text-base md:text-xl text-[#D4AF37]/90">
+      {couple.brideFather}
+    </p>
+  </>
+)}
               <div className="mt-8 flex justify-center">
                 <div className="h-px w-48 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
               </div>
 
-              {index !== weddingConfig.couples.length - 1 && (
 
-                <div className="my-10 flex items-center justify-center gap-6">
-
-                  <div className="h-px w-40 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-
-                  <motion.span
-                    animate={{
-                      rotate: [0, 180, 360],
-                      scale: [1, 1.15, 1],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 6,
-                    }}
-                    className="text-3xl text-[#D4AF37]"
-                  >
-                    ❁
-                  </motion.span>
-
-                  <div className="h-px w-40 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-
-                </div>
-
-              )}
 
             </motion.div>
 
+{index === 0 && (
+  <div className="my-8 md:my-10 flex items-center justify-center">
+    <div className="flex w-full max-w-2xl items-center gap-4">
+      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent" />
+
+      <motion.div
+        animate={{ rotate: [0, 360] }}
+        transition={{
+          repeat: Infinity,
+          duration: 12,
+          ease: "linear",
+        }}
+        className="text-2xl text-[#D4AF37]"
+      >
+        ❁
+      </motion.div>
+
+      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent" />
+    </div>
+  </div>
+)}
+</div>
           ))}
+
+
+
 
         </div>
                 {/* Invitation */}
@@ -177,18 +220,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="mx-auto mt-20 max-w-3xl"
+          className="mx-auto mt-14 md:mt-20 max-w-3xl"
         >
 
           <p className="text-sm uppercase tracking-[6px] text-[#D4AF37]">
             Wedding Invitation
           </p>
 
-          <h2 className="hero-title mt-6 text-4xl md:text-5xl">
+          <h2 className="hero-title mt-6 text-3xl md:text-5xl">
             You Are Invited
           </h2>
 
-          <p className="mt-8 text-xl leading-[2.8rem] text-gray-300">
+          <p className="mt-6 text-base leading-8 md:mt-8 md:text-xl md:leading-[2.8rem] text-gray-300">
             With the blessings of Allah (SWT),
             <br />
             we cordially invite you and your family
@@ -205,7 +248,7 @@ export default function Hero() {
 
         {/* Divider */}
 
-        <div className="mt-16 flex items-center justify-center gap-5">
+        <div className="mt-12 md:mt-16 flex items-center justify-center gap-5">
 
           <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
@@ -233,7 +276,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="mx-auto mt-10 max-w-2xl text-lg italic leading-8 text-[#D4AF37]/70"
+className="mx-auto mt-8 max-w-xl px-3 text-base italic leading-7 md:mt-10 md:max-w-2xl md:text-lg md:leading-8 text-[#D4AF37]/70"
         >
           "May Allah bless this union with endless love,
           mercy and barakah."
@@ -257,49 +300,28 @@ export default function Hero() {
 
       {/* Scroll */}
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          y: [0, 12, 0],
-        }}
-        transition={{
-          opacity: {
-            delay: 2,
-            duration: 1,
-          },
-          y: {
-            repeat: Infinity,
-            duration: 2,
-          },
-        }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{
+    opacity: 1,
+    y: [0, 6, 0],
+  }}
+  transition={{
+    delay: 2,
+    repeat: Infinity,
+    duration: 1.6,
+  }}
+  className="mt-10 flex flex-col items-center"
+>
+  <FaAnglesDown
+    size={22}
+    className="text-[#D4AF37]"
+  />
 
-        <div className="flex flex-col items-center text-[#D4AF37]">
-
-          <p className="mb-3 text-xs uppercase tracking-[8px] text-[#D4AF37]/70">
-            Explore Invitation
-          </p>
-
-          <motion.div
-            animate={{
-              scale: [1, 1.15, 1],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 2,
-            }}
-          >
-            <FaAnglesDown
-              size={34}
-              className="drop-shadow-[0_0_12px_rgba(212,175,55,.8)]"
-            />
-          </motion.div>
-
-        </div>
-
-      </motion.div>
+  <p className="mt-2 text-[11px] uppercase tracking-[4px] text-[#D4AF37]/60">
+    Scroll
+  </p>
+</motion.div>
 
     </section>
   );

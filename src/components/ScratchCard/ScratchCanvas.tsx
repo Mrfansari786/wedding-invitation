@@ -59,8 +59,7 @@ export default function ScratchCanvas({ onComplete }: Props) {
       ctx.globalCompositeOperation = "destination-out";
 
       ctx.beginPath();
-      ctx.arc(x, y, 24, 0, Math.PI * 2);
-      ctx.fill();
+ctx.arc(x, y, 32, 0, Math.PI * 2);      ctx.fill();
 
       checkProgress();
     }
@@ -78,10 +77,16 @@ export default function ScratchCanvas({ onComplete }: Props) {
 
       const percent = transparent / (width * height);
 
-      if (percent > 0.55) {
-        completed.current = true;
-        onComplete();
-      }
+if (percent > 0.40) {
+  completed.current = true;
+
+  // Mobile vibration
+  if (navigator.vibrate) {
+    navigator.vibrate(50);
+  }
+
+  onComplete();
+}
     }
 
     function getPosition(e: MouseEvent | TouchEvent) {

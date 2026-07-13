@@ -1,45 +1,46 @@
 import { motion } from "framer-motion";
-
-export default function EnvelopeBackground() {
+export default function EnvelopeLetter() {
   return (
-    <>
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-[#090909] to-black" />
+    <div className="mx-5 mt-6 rounded-2xl border border-[#D4AF37]/20 bg-white p-6 shadow-2xl">
 
-      {/* Main Glow */}
-      <motion.div
-        animate={{
-          scale: [1, 1.05, 1],
-          opacity: [0.12, 0.18, 0.12],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 8,
-        }}
-        className="absolute left-1/2 top-1/2 h-[55rem] w-[55rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37] blur-[220px]"
-      />
+      <p className="text-center text-[10px] uppercase tracking-[6px] text-gray-500">
+        Wedding Invitation
+      </p>
 
-      {/* Secondary Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
+      <div className="my-5 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-      {/* Luxury Pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle,#D4AF37 1px,transparent 1px)",
-          backgroundSize: "70px 70px",
-        }}
-      />
+      <h2 className="text-center text-[2rem] font-semibold tracking-wide text-[#8f6b00]">
+        Maruf
+      </h2>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08),transparent_70%)]" />
+      <p className="my-2 text-center text-2xl text-gray-500">
+        &
+      </p>
 
-      {/* Top Light */}
-      <div className="absolute left-1/2 top-0 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
+      <h2 className="text-center text-[2rem] font-semibold tracking-wide text-[#8f6b00]">
+        Mantasha
+      </h2>
 
-      {/* Bottom Light */}
-      <div className="absolute bottom-0 left-1/2 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
-    </>
+      <div className="my-6 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+
+      <h2 className="text-center text-[1.7rem] font-medium tracking-wide text-[#8f6b00]">
+        Farhan
+      </h2>
+
+      <p className="my-2 text-center text-xl text-gray-500">
+        &
+      </p>
+
+      <h2 className="text-center text-[1.7rem] font-medium tracking-wide text-[#8f6b00]">
+        Misbah
+      </h2>
+
+      <div className="mt-6 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+
+      <p className="mt-5 text-center text-[10px] uppercase tracking-[5px] text-gray-500">
+        Tap To Open
+      </p>
+
+    </div>
   );
 }

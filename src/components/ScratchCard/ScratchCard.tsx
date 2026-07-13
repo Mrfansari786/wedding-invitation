@@ -6,7 +6,7 @@ export default function ScratchCard() {
   const [opened, setOpened] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#090909] py-24 px-6">
+<section className="relative overflow-hidden bg-[#090909] py-16 md:py-20 px-6">
 
       {/* Background Glow */}
       <div className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/10 blur-[180px]" />

@@ -8,7 +8,7 @@ type Props = {
 
 export default function Envelope({ onOpen, opened }: Props) {
   return (
-    <div className="flex min-h-screen items-center justify-center overflow-hidden bg-[#090909]">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#090909] px-4">
 
       {/* Golden Flash */}
       <motion.div
@@ -21,9 +21,7 @@ export default function Envelope({ onOpen, opened }: Props) {
               }
             : {}
         }
-        transition={{
-          duration: 0.8,
-        }}
+        transition={{ duration: 0.8 }}
         className="absolute h-[600px] w-[600px] rounded-full bg-[#D4AF37]"
       />
 
@@ -54,10 +52,12 @@ export default function Envelope({ onOpen, opened }: Props) {
         onClick={() => {
           if (!opened) onOpen();
         }}
-        className="relative cursor-pointer"
+        className="relative flex w-full max-w-[360px] flex-col items-center cursor-pointer"
       >
 
-        <div className="relative h-[240px] w-[360px] overflow-hidden rounded-2xl border border-[#D4AF37]/30 bg-[#161616] shadow-[0_0_80px_rgba(212,175,55,.15)]">
+        {/* Envelope */}
+
+<div className="relative h-[290px] w-full overflow-hidden rounded-[28px] border border-[#D4AF37]/30 bg-[#161616] shadow-[0_0_80px_rgba(212,175,55,.15)]">
 
           {/* Letter */}
 
@@ -65,15 +65,17 @@ export default function Envelope({ onOpen, opened }: Props) {
             animate={
               opened
                 ? {
-                    y: -150,
+                    y: -170,
                   }
                 : {
-                    y: 30,
+                    y: 90,
                   }
             }
             transition={{
               duration: 0.8,
+              ease: "easeInOut",
             }}
+            className="absolute inset-0 flex justify-center"
           >
             <EnvelopeLetter />
           </motion.div>
@@ -97,12 +99,12 @@ export default function Envelope({ onOpen, opened }: Props) {
               transformOrigin: "top",
               transformStyle: "preserve-3d",
             }}
-            className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-[#d4af37] to-[#7d6200]"
+            className="absolute inset-x-0 top-0 h-[55%] bg-gradient-to-b from-[#d4af37] to-[#7d6200]"
           />
 
         </div>
 
-        {/* Text */}
+        {/* Tap Text */}
 
         <motion.p
           animate={
@@ -111,16 +113,16 @@ export default function Envelope({ onOpen, opened }: Props) {
                   opacity: 0,
                 }
               : {
-                  y: [0, -8, 0],
+                  y: [0, -6, 0],
                 }
           }
           transition={{
             repeat: Infinity,
             duration: 2,
           }}
-          className="mt-10 text-center tracking-[8px] text-[#D4AF37]"
+          className="mt-8 text-center text-[11px] uppercase tracking-[6px] text-[#D4AF37]/90"
         >
-          TAP TO OPEN
+          Tap To Open
         </motion.p>
 
       </motion.div>

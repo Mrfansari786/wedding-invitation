@@ -9,7 +9,7 @@ import Timeline from "../components/Timeline";
 import Location from "../components/Location";
 import RSVP from "../components/RSVP";
 import Footer from "../components/Footer/Footer";
-import Music from "../components/Music/Music";
+
 import DuaSection from "../components/DuaSection";
 
 export default function Home() {
@@ -63,7 +63,7 @@ export default function Home() {
       <Location />
       <RSVP />
       <Footer />
-      {/* <Music /> */}
+      
 
       <AnimatePresence>
         {showButton && (

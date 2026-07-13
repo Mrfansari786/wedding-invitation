@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 export default function EnvelopeLetter() {
   return (
     <div className="mx-5 mt-6 rounded-2xl border border-[#D4AF37]/20 bg-white p-6 shadow-2xl">

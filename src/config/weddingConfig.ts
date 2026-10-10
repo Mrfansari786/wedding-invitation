@@ -42,7 +42,7 @@ couples: [
     },
 
     {
-      title: "Farhan ❤️ Misbah - Nikah",
+      title: "Mishbah ❤️ Farhan - Nikah",
       icon: "💍",
       date: "26 October 2026",
       time: "Following the Asr Prayer",
@@ -54,7 +54,7 @@ couples: [
       title: "Dawat-e-Walima",
       icon: "🍽️",
       date: "26 October 2026",
-      time: "6:00 PM Onwards",
+      time: "10:00 AM Onwards",
       venue: "Ansari Jamat Khana, Padana",
         map: "https://maps.google.com/?q=Ansari+Jamat+Khana+Padana",
     },
@@ -64,7 +64,7 @@ venues: [
   {
     title: "Dawat-e-Walima",
     date: "26 October 2026",
-    time: "6:00 PM Onwards",
+    time: "10:00 AM Onwards",
     venue: "Ansari Jamat Khana",
     address: "Padana",
     map: "https://maps.google.com/?q=Ansari+Jamat+Khana+Padana",
@@ -75,14 +75,14 @@ venues: [
 ],
   contactPersons: [
   {
-    name: "Ad. Anwar Ansari",
-    relation: "Father",
-    phone: "919993954459",
-  },
-  {
     name: "Haji Kamruddin Ansari",
     relation: "Grandfather",
     phone: "918718088870"
+  },
+  {
+    name: "Ad. Anwar Ansari",
+    relation: "Father",
+    phone: "919993954459",
   },
   {
     name: "Dr. Umar Farook Ansari",

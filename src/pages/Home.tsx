@@ -3,10 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa6";
 
 import Hero from "../components/Hero/Hero";
-import ScratchCard from "../components/ScratchCard";
 import Countdown from "../components/Countdown";
 import Timeline from "../components/Timeline";
-import Location from "../components/Location";
 import RSVP from "../components/RSVP";
 import Footer from "../components/Footer/Footer";
 
@@ -59,8 +57,6 @@ export default function Home() {
       <Countdown />
       <Timeline />
       <DuaSection />
-      <ScratchCard />
-      <Location />
       <RSVP />
       <Footer />
       
